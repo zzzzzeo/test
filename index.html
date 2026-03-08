@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>待办事项</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <div class="header-top">
+        <h1>我的待办</h1>
+        <span class="date-label" id="dateLabel"></span>
+      </div>
+      <div class="stats-row">
+        <span class="stat"><span id="totalCount">0</span> 全部</span>
+        <span class="stat active"><span id="pendingCount">0</span> 待完成</span>
+        <span class="stat done"><span id="doneCount">0</span> 已完成</span>
+      </div>
+    </header>
+
+    <div class="input-area">
+      <input
+        type="text"
+        id="taskInput"
+        placeholder="添加新任务，按 Enter 确认..."
+        maxlength="100"
+        autocomplete="off"
+      />
+      <button id="addBtn" title="添加任务">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="filter-tabs">
+      <button class="tab active" data-filter="all">全部</button>
+      <button class="tab" data-filter="pending">待完成</button>
+      <button class="tab" data-filter="done">已完成</button>
+    </div>
+
+    <ul class="task-list" id="taskList">
+      <li class="empty-state" id="emptyState">
+        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="10" y="8" width="44" height="48" rx="4"/>
+          <line x1="20" y1="22" x2="44" y2="22"/>
+          <line x1="20" y1="32" x2="44" y2="32"/>
+          <line x1="20" y1="42" x2="34" y2="42"/>
+        </svg>
+        <p>还没有任务，快来添加吧！</p>
+      </li>
+    </ul>
+
+    <div class="bottom-bar" id="bottomBar" style="display:none;">
+      <span id="clearDoneBtn" class="clear-btn">清除已完成</span>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
